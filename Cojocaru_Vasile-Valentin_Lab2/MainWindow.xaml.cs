@@ -88,7 +88,7 @@ DoughnutMachine.DoughnutCompleteDelegate(DoughnutCompleteHandler);
         {
             if (!(e.Key >= Key.D0 && e.Key <= Key.D9))
             {
-                MessageBox.Show("Numai cifre se pot introduce!!", "Input Error", MessageBoxButton.OK,
+                MessageBox.Show("Numai cifre se pot introduce!!!", "Input Error", MessageBoxButton.OK,
                MessageBoxImage.Error);
             }
         }
