@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cojocaru_Vasile_Valentin_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Loaded="frmMain_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="791*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Left" Margin="234,35,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Grid.Column="1"/>
-        <GroupBox x:Name="gbRaised" Header="Raised" HorizontalAlignment="Left" Width="178" Margin="213,82,0,215" AutomationProperties.IsColumnHeader="True" FontWeight="Bold" Grid.Column="1">
+        <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Left" Margin="177,35,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Grid.Column="2" Height="42" Width="292"/>
+        <GroupBox x:Name="gbRaised" Header="Raised" HorizontalAlignment="Left" Width="178" Margin="156,82,0,215" AutomationProperties.IsColumnHeader="True" FontWeight="Bold" Grid.Column="2">
             <Canvas>
                 <Label x:Name="lblGlazedRaised" Content="Glazed" Canvas.Left="10" Canvas.Top="13"/>
                 <TextBox x:Name="txtGlazedRaised" Canvas.Left="74" Canvas.Top="21" Text="0" TextWrapping="Wrap" Width="60" IsReadOnly="True"/>
@@ -20,7 +21,7 @@
                 <TextBox x:Name="txtSugarRaised" Canvas.Left="74" Canvas.Top="52" Text="0" TextWrapping="Wrap" Width="60" IsReadOnly="True"/>
             </Canvas>
         </GroupBox>
-        <GroupBox x:Name="gbFilled_" Header="Filled" Margin="432,82,181,210" FontWeight="Bold" Grid.Column="1">
+        <GroupBox x:Name="gbFilled_" Header="Filled" Margin="375,82,181,210" FontWeight="Bold" Grid.Column="2">
             <Canvas>
                 <Label x:Name="lblLemonFilled" Content="Lemon" Canvas.Left="14" Canvas.Top="10"/>
                 <TextBox x:Name="txtLemonFilled_" Canvas.Left="79" Canvas.Top="10" Text="0" TextWrapping="Wrap" Width="60" IsReadOnly="True"/>
@@ -30,10 +31,10 @@
                 <TextBox x:Name="txtVanillaFilled" Canvas.Left="79" Canvas.Top="77" Text="0" TextWrapping="Wrap" Width="60" IsReadOnly="True"/>
             </Canvas>
         </GroupBox>
-        <GroupBox x:Name="gbSale" Header="Current Sale" Margin="81,224,62,10" FontWeight="Bold" Grid.Column="1">
+        <GroupBox x:Name="gbSale" Header="Current Sale" Margin="24,224,62,10" FontWeight="Bold" Grid.Column="2">
             <Canvas>
                 <Label x:Name="lblQuantity" Content="Quantity" Canvas.Left="25" Canvas.Top="10"/>
-                <TextBox x:Name="txtQuantity" Canvas.Left="89" Canvas.Top="14" Text="0" TextWrapping="Wrap" Width="36"/>
+                <TextBox x:Name="txtQuantity" Canvas.Left="89" Canvas.Top="14" Text="0" TextWrapping="Wrap" Width="36" KeyUp="txtQuantity_KeyUp"/>
                 <Label x:Name="lblType" Content="Type" Canvas.Left="150" Canvas.Top="10"/>
                 <ComboBox x:Name="cmbType" Canvas.Left="196" Canvas.Top="14" Width="120"/>
                 <Label x:Name="lblPrice" Content="Price" Canvas.Left="338" Canvas.Top="14"/>
@@ -46,19 +47,20 @@
                 <Button x:Name="btnCheckOut" Content="Check Out " Canvas.Left="538" Canvas.Top="123"/>
             </Canvas>
         </GroupBox>
-        <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
-Width="131" Margin="15,10,0,0" Grid.Column="1">
-            <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+
+        <Menu Grid.Column="1" Margin="24,10,573,378" Grid.ColumnSpan="2">
+            <MenuItem x:Name="click" Header="File">
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
-            <MenuItem Header="_Doughnuts">
+            <MenuItem Header="Daughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
     </Grid>
