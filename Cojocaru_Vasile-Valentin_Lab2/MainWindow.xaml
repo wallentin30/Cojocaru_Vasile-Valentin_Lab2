@@ -8,7 +8,7 @@
 
         mc:Ignorable="d"
         Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" Loaded="frmMain_Loaded">
-    <Grid MenuItem.Click="FilledItemsShow_Click">
+    <Grid MenuItem.Click="FilledItemsShow_Click ">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="9*"/>
             <ColumnDefinition Width="0*"/>
