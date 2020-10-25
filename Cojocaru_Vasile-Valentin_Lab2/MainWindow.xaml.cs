@@ -76,7 +76,7 @@ namespace Cojocaru_Vasile_Valentin_Lab2
         private void CtrlC_CommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             //handler pentru comanda Ctrl+C -> se executa mnuCakeChocolate_Click
-            MessageBox.Show("Ctrl+Dbl Left Click or Ctrl+C or Alt+C Pressed");
+            MessageBox.Show("Ctrl+Dbl Left Click or Ctrl+C or Alt+C Pressed!!!");
             this.chocolateFilledMenuItem_Click(sender, e);
         }
 
